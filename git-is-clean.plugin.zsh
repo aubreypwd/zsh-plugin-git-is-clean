@@ -17,11 +17,11 @@
 function git-is-clean {
 	DIRTY=0
 
-	pushd "$1" &> /dev/null || exit
+	pushd "$1" &> /dev/null || return
 
-	git diff-index --quiet HEAD || DIRTY=1
+	git diff-index --quiet --ignore-submodules HEAD || DIRTY=1
 
-	popd &> /dev/null || exit
+	popd &> /dev/null || return
 
 	return $DIRTY
 }
