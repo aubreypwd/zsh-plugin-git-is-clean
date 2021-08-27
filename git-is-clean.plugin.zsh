@@ -15,18 +15,13 @@
  # @return boolean
  ##
 function git-is-clean {
+	DIRTY=0
 
-	dirty=$(
+	pushd "$1" &> /dev/null || exit
 
-		# I can navigate to the folder.
-		pushd "$1" &> /dev/null && \
+	git diff-index --quiet HEAD || DIRTY=1
 
-			# It's dirty.
-			git diff-index --quiet HEAD && \
+	popd &> /dev/null || exit
 
-				# And I can navigate back (should).
-				popd &> /dev/null
-	)
-
-	return $dirty;
+	return $DIRTY
 }
