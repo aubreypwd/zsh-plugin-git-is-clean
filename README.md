@@ -21,18 +21,10 @@ antigen bundle aubreypwd/zsh-plugin-git-is-clean@1.0.0
 
 ## Development
 
-Install the package on `master`:
+Install the package on `main`:
 
 ```bash
 antigen bundle ssh://git@github.com/aubreypwd/zsh-plugin-git-is-clean
 ```
 
 ...and contribute upstream by working in `$HOME/.antigen/bundles/aubreypwd/zsh-plugin-git-is-clean`.
-
----
-
-## Changelog
-
-## 1.0.0
-
-- First version of what I've used for years.
