@@ -36,7 +36,7 @@ antigen bundle ssh://git@github.com/aubreypwd/zsh-plugin-git-is-clean
  # Watch repositories.
  ##
 function __git-is-clean {
-    git-is-clean "$1" || echo "🚨  $1 is dirty" && tput bel;
+    git-is-clean "$1" || ( echo "🚨  $1 is dirty" && tput bel )
 }
 __git-is-clean "$HOME/Repos/github.com/aubreypwd/iTerm2"
 __git-is-clean "$HOME/Repos/github.com/aubreypwd/Alfred.alfredpreferences"
