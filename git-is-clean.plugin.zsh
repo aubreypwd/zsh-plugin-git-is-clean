@@ -15,13 +15,20 @@
  # @return boolean
  ##
 function git-is-clean {
+
+	if [ ! -d "$1" ]; then
+		return 0;
+	fi
+
 	DIRTY=0
 
-	pushd "$1" &> /dev/null || return
+	PWD=$(pwd)
+
+	cd "$1"
 
 	git diff-index --quiet --ignore-submodules HEAD || DIRTY=1
 
-	popd &> /dev/null || return
+	cd "$PWD"
 
 	return $DIRTY
 }
