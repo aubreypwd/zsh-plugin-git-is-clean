@@ -20,19 +20,21 @@ function git-is-clean {
 		return 0;
 	fi
 
-	DIRTY=0
-
-	PWD=$(pwd)
+	local DIRTY=0
+	local CWD=$(pwd)
 
 	cd "$1"
 
 	if [ ! -d ".git" ]; then
+
+		cd "$CWD"
+
 		return 0;
 	fi
 
 	git diff-index --quiet --ignore-submodules HEAD || DIRTY=1
 
-	cd "$PWD"
+	cd "$CWD"
 
 	return $DIRTY
 }
