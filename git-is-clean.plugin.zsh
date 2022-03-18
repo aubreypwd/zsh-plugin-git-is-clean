@@ -26,6 +26,10 @@ function git-is-clean {
 
 	cd "$1"
 
+	if [ ! -d ".git" ]; then
+		return 0;
+	fi
+
 	git diff-index --quiet --ignore-submodules HEAD || DIRTY=1
 
 	cd "$PWD"
