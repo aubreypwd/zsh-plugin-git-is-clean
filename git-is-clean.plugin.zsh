@@ -20,6 +20,8 @@ fi
  ##
 function git-is-clean {
 
+	if ! [[ -x $(command -v git) ]]; then >&2 echo "Please install git to use git-is-clean." && return; fi
+
 	if [ ! -d "$1" ]; then
 		return 0;
 	fi

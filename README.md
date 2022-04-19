@@ -11,6 +11,12 @@ git-is-clean "path/to/repo" || echo "path/to/repo is dirty!"
 
 In this example, if `path/to/repo` is dirty it will `echo` _path/to/repo is dirty!_
 
+## Requires
+
+- `git`
+
+If you use https://github.com/aubreypwd/zsh-plugin-require we will try and install dependancies automatically.
+
 ## Install
 
 Using [antigen](https://github.com/zsh-users/antigen):
