@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+if [[ $(command -v require) ]]; then
+	require "git" "brew reinstall git" "brew" # Automatically install git using homebrew.
+fi
+
 ###
  # Is a git repo dirty?
  #
